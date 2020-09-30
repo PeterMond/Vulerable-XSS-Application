@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VulnerableXSS", "VulnerableXSS\VulnerableXSS.csproj", "{2511FD9F-C68A-4D4A-83F8-BC5761EEB386}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2511FD9F-C68A-4D4A-83F8-BC5761EEB386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2511FD9F-C68A-4D4A-83F8-BC5761EEB386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2511FD9F-C68A-4D4A-83F8-BC5761EEB386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2511FD9F-C68A-4D4A-83F8-BC5761EEB386}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {766F2405-AE22-4BE9-B694-2E6003F42782}
+	EndGlobalSection
+EndGlobal
