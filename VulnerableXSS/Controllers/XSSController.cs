@@ -40,5 +40,30 @@ namespace VulnerableXSS.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult JavaScriptContext()
+        {
+            XssBasicFields model = new XssBasicFields
+            {
+                NameVulnerable = " ",
+                NameFixed = " "
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult JavaScriptContext(XssBasicFields model)
+        {
+            if (model.NameFixed == null)
+            {
+                model.NameFixed = " ";
+            }
+            if (model.NameVulnerable == null)
+            {
+                model.NameVulnerable = " ";
+            }
+            return View(model);
+        }
     }
 }

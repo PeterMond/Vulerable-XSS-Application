@@ -110,3 +110,4 @@ C:\Users\grant\source\repos\VulnerableXSS\VulnerableXSS\obj\Debug\netcoreapp3.1\
 C:\Users\grant\source\repos\VulnerableXSS\VulnerableXSS\bin\Debug\netcoreapp3.1\Mono.HttpUtility.dll
 C:\Users\grant\source\repos\VulnerableXSS\VulnerableXSS\obj\Debug\netcoreapp3.1\VulnerableXSS.csproj.CoreCompileInputs.cache
 C:\Users\grant\source\repos\VulnerableXSS\VulnerableXSS\obj\Debug\netcoreapp3.1\VulnerableXSS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\grant\source\repos\VulnerableXSS\VulnerableXSS\obj\Debug\netcoreapp3.1\Razor\Views\XSS\JavaScriptContext.cshtml.g.cs

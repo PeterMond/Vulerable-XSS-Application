@@ -1,7 +1,69 @@
-﻿
+﻿@model VulnerableXSS.Models.XssBasicFields;
+@using System.Text.Encodings.Web;
 @{
     ViewData["Title"] = "XSS in a JavaScript Context";
 }
 
 <h1>XSS in a JavaScript Context</h1>
+
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h2>Vulnerable</h2>
+            <h5 id="vulnerableRespnose">Hello </h5>
+            <div class="row">
+                <div class="col-md-12">
+                    <form method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input asp-for="NameVulnerable" class="form-control" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <script>
+                    var name = "@Html.Raw(Model.NameVulnerable)";
+                    document.getElementById("vulnerableRespnose").innerText = "Hello " + name;
+                </script>
+                <div class="row" style="padding: 20px;">
+                    <h5>Why Does this Work?</h5>
+                    <p> If you go into the page source by right clicking on the page and selecting "View Source", and find THML script tag, you will see that all the sensative characters like quotes are not JavaScript sting encoded. Because the user input is not encoded, use a quote and semicolon to then add new JavaScript code.  </p>
+                    <h5> Impact </h5>
+                    <p>As a result of this cross-site scripting vulnerablity, an attacker could do things such as steal users sessions cookies if they are not set to HttpOnly and preform actions on behalf of the user. Also, an attacker could scrape sensative data off the users private pages.</p>
+                    <h5>Additional Resources</h5>
+                    <p>- http://www.securityidiots.com/Web-Pentest/XSS/different-contexts-for-xss-execution.html </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm">
+            <h2>Fixed</h2>
+            <h5 id="fixedResponse">Hello </h5>
+            <div class="row">
+                <div class="col-md-12">
+                    <form method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input asp-for="NameFixed" class="form-control" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <script>
+                    var name = "@Html.Raw(JavaScriptEncoder.Default.Encode(Model.NameFixed))";
+                    document.getElementById("fixedResponse").innerText = "Hello " + name;
+                </script>
+                <div class="row" style="padding: 20px;">
+                    <h5>How to Fix this Issue</h5>
+                    <p>In order to fix this cross-site scripting vulnerability, you would need to JavaScript string encode the untrusted user input on the server-side before it is sent back to the client. This would prevent the user input from being interperted as JavaScript code and therefore prevent this vulnerablity.</p>
+                    <h5>Additional Resources</h5>
+                    <p>- https://docs.microsoft.com/en-us/dotnet/api/system.text.encodings.web.javascriptencoder </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
