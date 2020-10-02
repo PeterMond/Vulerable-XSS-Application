@@ -29,13 +29,15 @@
                     <p>If you go into the page source by right clicking on the page and selecting "View Source", and find the place where it says "Hello name" you will see that all the sensative characters like quotes and angled brackets are not encoded. Because the user input is not HTML encoded, you can use the script tag to break out of the HTML context and run JavaScript. </p>
                     <h5>Impact</h5>
                     <p>As a result of this cross-site scripting vulnerablity, an attacker could do things such as steal users sessions cookies if they are not set to HttpOnly and preform actions on behalf of the user. Also, an attacker could scrape sensative data off the users private pages.</p>
+                    <h5>Code Snippets</h5>
+                    <img src="~/images/SimpleReflectedCode.PNG" style="width:100%;"/>
                     <h5>Additional Resources</h5>
                     <p>- https://owasp.org/www-community/attacks/xss/#/ </p>
                     <p>- https://portswigger.net/web-security/cross-site-scripting/cheat-sheet </p>
                 </div>
             </div>
         </div>
-        
+
         <div class="col-sm">
             <h2>Fixed</h2>
             <h5>Hello @Html.Raw(HtmlEncoder.Default.Encode(Model.NameFixed))</h5>
@@ -51,9 +53,11 @@
                     </form>
                 </div>
             </div>
-            <div class="row" style="padding: 15px;" >
+            <div class="row" style="padding: 15px;">
                 <h5>How to Fix this Issue</h5>
                 <p>In order to fix this cross-site scripting vulnerability, you would need to HTML encode the untrusted user input on the server-side before it is sent back to the client. This would prevent the user input from being interperted as JavaScript and therefore prevent this vulnerablity.</p>
+                <h5>Code Snippet</h5>
+                <img src="~/images/SimpleReflectedCodeFixed.PNG" style="width:100%;"/>
                 <h5>Additional Resources</h5>
                 <p>- https://www.w3schools.com/html/html_entities.asp </p>
             </div>

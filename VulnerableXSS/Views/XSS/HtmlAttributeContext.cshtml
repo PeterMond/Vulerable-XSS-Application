@@ -18,7 +18,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <form method="post">
-                        <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="form-group">
                             <label>Name</label>
                             <input asp-for="NameVulnerable" class="form-control" />
@@ -31,6 +30,9 @@
                     <p>If you go into the page source by right clicking on the page and selecting "View Source", and find the place where it says "Hello name" you will see that all the sensative characters like quotes are not HTML encoded. Because the user input is not HTML encoded, you can use a quote to break of out the value attribute and add an event handler like onmouseover to execute JavaScript. </p>
                     <h5>Impact</h5>
                     <p>As a result of this cross-site scripting vulnerablity, an attacker could do things such as steal users sessions cookies if they are not set to HttpOnly and preform actions on behalf of the user. Also, an attacker could scrape sensative data off the users private pages.</p>
+                    <h5>Code Snippet</h5>
+                    <br />
+                    <img src="~/images/HtmlAttributeContextCode.PNG" style="width:100%;">
                 </div>
             </div>
         </div>
@@ -55,6 +57,8 @@
             <div class="row" style="padding: 15px;">
                 <h5>How to Fix this Issue</h5>
                 <p>In order to fix this cross-site scripting vulnerability, you would need to HTML encode the untrusted user input on the server-side before it is sent back to the client. This would prevent the user input from being interperted as JavaScript and therefore prevent this vulnerablity.</p>
+                <h5>Code Snippet</h5>
+                <img src="~/images/HtmlAttributeContextFixedCode.PNG" style="width:100%;"/>
                 <h5>Additional Resources</h5>
                 <p>- https://www.w3schools.com/html/html_entities.asp </p>
             </div>
